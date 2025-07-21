@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Frage 1 – Wie heißt du?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="container fade-in-up">
+    <h1 class="question">Wie heißt du?</h1>
+    <p class="subtitle">Wie können wir dich nennen?</p>
+
+    <form id="name-form" class="form-group fade-in-up">
+      <input 
+        type="text" 
+        id="name-input" 
+        name="name" 
+        placeholder="Dein Name" 
+        minlength="3" 
+        maxlength="25" 
+        required
+      />
+      <p id="error-message" class="error-message"></p>
+      <button type="submit" class="btn btn-primary">Weiter</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
