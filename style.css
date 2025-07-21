@@ -25,12 +25,12 @@ body {
 /* Fragen-Texte */
 .question {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .subtitle {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Formular */
@@ -45,7 +45,7 @@ input[type="text"] {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   transition: border-color 0.3s;
 }
 input[type="text"]:focus {
