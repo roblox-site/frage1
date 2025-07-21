@@ -11,7 +11,7 @@ body {
 }
 .container {
   background: #fff;
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 1.5rem;
   border-radius: 10px;
   max-width: 500px;
   width: 90%;
@@ -24,7 +24,7 @@ body {
 
 /* Fragen-Texte */
 .question {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 .subtitle {
