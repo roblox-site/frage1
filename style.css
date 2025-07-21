@@ -6,21 +6,34 @@ body {
   color: #333;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
+/* Schritt-Indikator */
+.step-indicator {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Container */
 .container {
   background: #fff;
   padding: 1.5rem 1.5rem;
   border-radius: 10px;
   max-width: 500px;
   width: 90%;
-  margin: 0 auto; /* zentriert die Box und gibt links/rechts Abstand */
+  margin: 0 auto;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   text-align: center;
   animation: fadeInUp 0.8s ease forwards;
 }
-
 
 /* Fragen-Texte */
 .question {
