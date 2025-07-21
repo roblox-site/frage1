@@ -15,10 +15,12 @@ body {
   border-radius: 10px;
   max-width: 500px;
   width: 90%;
+  margin: 0 auto; /* zentriert die Box und gibt links/rechts Abstand */
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   text-align: center;
   animation: fadeInUp 0.8s ease forwards;
 }
+
 
 /* Fragen-Texte */
 .question {
