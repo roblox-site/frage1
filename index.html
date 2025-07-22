@@ -1,32 +1,67 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <title>📝 Bewerbung</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mein Formular</title>
+  <!-- Google-Font Roboto laden -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <main class="form-page">
+    <h1 class="form-title">Meine Umfrage</h1>
 
-  <div class="step-indicator fade-in-up">Bewerbung</div>
+    <div class="question-box">
+      <label for="name" class="question">1. Wie heißt du?</label>
+      <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name">
+    </div>
 
-  <main class="container fade-in-up">
-    <h1 class="question">Wie heißt du?</h1>
-    <p class="subtitle">Wie können wir dich nennen?</p>
+    <div class="question-box">
+      <span class="question">2. Wann wurdest du geboren?</span>
+      <div class="date-select">
+        <select name="day" id="day">
+          <option value="" disabled selected>Tag</option>
+          <!-- Beispiel: 1–31 -->
+          <script>
+            // Optional: automatisch Optionen einfügen
+            for(let d=1; d<=31; d++){
+              document.write(`<option value="${d}">${d}</option>`);
+            }
+          </script>
+        </select>
+        <select name="month" id="month">
+          <option value="" disabled selected>Monat</option>
+          <option value="1">Januar</option>
+          <option value="2">Februar</option>
+          <option value="3">März</option>
+          <option value="4">April</option>
+          <option value="5">Mai</option>
+          <option value="6">Juni</option>
+          <option value="7">Juli</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">Oktober</option>
+          <option value="11">November</option>
+          <option value="12">Dezember</option>
+        </select>
+        <select name="year" id="year">
+          <option value="" disabled selected>Jahr</option>
+          <!-- Beispiel: 1900–2025 -->
+          <script>
+            const currentYear = new Date().getFullYear();
+            for(let y=currentYear; y>=1900; y--){
+              document.write(`<option value="${y}">${y}</option>`);
+            }
+          </script>
+        </select>
+      </div>
+    </div>
 
-    <form id="name-form" class="form-group fade-in-up">
-      <input 
-        type="text" 
-        id="name-input" 
-        name="name" 
-        placeholder="Dein Name" 
-        minlength="3" 
-        maxlength="25" 
-        required
-      />
-      <p id="error-message" class="error-message"></p>
-    </form>
+    <!-- Weitere Fragen hier… -->
+
+    <button type="submit" class="submit-btn">Absenden</button>
   </main>
 </body>
 </html>
