@@ -55,6 +55,22 @@ body {
   border-color: #4285f4;
 }
 
+.long-answer {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  resize: vertical;
+  transition: border-color .2s;
+}
+
+.long-answer:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
 .date-select {
   display: flex;
   gap: 12px;
