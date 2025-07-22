@@ -1,14 +1,12 @@
 /* Reset & Basis */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body {
+html, body {
   font-family: 'Inter', sans-serif;
   background: #f9f9f9;
   color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  overflow: hidden; /* 🚫 Kein Scrollen */
+  touch-action: manipulation; /* 👉 verhindert doppeltippen/zoomen */
 }
 
 /* Schritt-Indikator */
