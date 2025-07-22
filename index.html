@@ -93,7 +93,50 @@
       <input type="text" id="bundesland" name="bundesland" class="short-answer" placeholder="Dein Bundesland">
     </div>
 
+    <!-- Frage 9 -->
+    <div class="question-box" id="discord-box">
+      <label for="discord" class="question">9. Wie lautet dein Discord Benutzername?</label>
+      <input type="text" id="discord" name="discord" class="short-answer" placeholder="Benutzername#1234">
+      <div class="checkbox-group">
+        <input type="checkbox" id="no-discord" name="no-discord">
+        <label for="no-discord">Ich habe kein Discord</label>
+      </div>
+    </div>
+
+    <!-- Frage 10 -->
+    <div class="question-box">
+      <label for="sonstiges" class="question">10. Hier kannst du sonstige Informationen angeben (Optional)</label>
+      <textarea id="sonstiges" name="sonstiges" class="long-answer" placeholder="Deine zusätzlichen Infos"></textarea>
+    </div>
+
+    <!-- Frage 11 -->
+    <div class="question-box">
+      <div class="checkbox-group">
+        <input type="checkbox" id="confirm-join" name="confirm-join">
+        <label for="confirm-join">Ich bin mir zu 100% sicher, dass ich mich anschließen möchte</label>
+      </div>
+    </div>
+
+    <!-- Frage 12 -->
+    <div class="question-box">
+      <label for="unterschrift" class="question">12. Bitte unterschreibe: (Vor- und Nachname)</label>
+      <input type="text" id="unterschrift" name="unterschrift" class="short-answer" placeholder="Vor- und Nachname">
+    </div>
+
     <button type="submit" class="submit-btn">Absenden</button>
   </main>
+
+  <script>
+    // Frage 9: Wenn "Ich habe kein Discord" gecheckt, Textfeld ausblenden
+    const noDiscord = document.getElementById('no-discord');
+    const discordInput = document.getElementById('discord');
+    noDiscord.addEventListener('change', () => {
+      if (noDiscord.checked) {
+        discordInput.parentElement.classList.add('hidden');
+      } else {
+        discordInput.parentElement.classList.remove('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
