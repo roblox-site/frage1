@@ -1,91 +1,97 @@
-/* Reset & Basis */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body {
-  font-family: 'Inter', sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  height: 100%;
-  overflow: hidden; /* 🚫 Kein Scrollen */
-  touch-action: manipulation; /* 👉 verhindert doppeltippen/zoomen */
+/* style.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Schritt-Indikator */
-.step-indicator {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  background-color: #e9ecef;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+  color: #202124;
+  line-height: 1.5;
 }
 
-/* Container */
-.container {
-  background: #fff;
-  padding: 1.5rem 1.5rem;
-  border-radius: 10px;
-  max-width: 500px;
-  width: 90%;
-  margin: 0 auto;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+.form-page {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 24px;
   text-align: center;
-  animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Fragen-Texte */
+.question-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 .question {
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-.subtitle {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 12px;
 }
 
-/* Formular */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-input[type="text"] {
+.short-answer {
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 0.5rem;
-  transition: border-color 0.3s;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  transition: border-color .2s;
 }
-input[type="text"]:focus {
-  border-color: #007BFF;
+
+.short-answer:focus {
   outline: none;
+  border-color: #4285f4;
 }
 
-/* Fehlermeldung */
-.error-message {
-  color: #e63946;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+.date-select {
+  display: flex;
+  gap: 12px;
 }
 
-/* Button */
-.btn {
-  padding: 10px 22px;
-  font-size: 1rem;
+.date-select select {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%23424242'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 10px 6px;
+}
+
+.date-select select:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #1a73e8;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.btn-primary {
-  background-color: #007BFF;
-  color: white;
-}
-.btn-primary:hover {
-  background-color: #0056b3;
+  transition: background-color .2s;
 }
 
+.submit-btn:hover {
+  background-color: #1669c1;
+}
