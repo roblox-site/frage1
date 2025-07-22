@@ -94,6 +94,27 @@ body {
   border-color: #4285f4;
 }
 
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.checkbox-group label {
+  margin-left: 8px;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .submit-btn {
   display: block;
   width: 100%;
