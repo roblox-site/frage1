@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     error.textContent = "";
 
-    const encodedName = btoa(unescape(encodeURIComponent(name))); // UTF-8-kompatibel
+    const encodedName = btoa(String.fromCharCode(...new TextEncoder().encode(`**Name:** ${name}`)));
+
     const targetURL = `https://meinewebsite.github.de/frage2/${encodedName}`;
     window.location.href = targetURL;
   });
