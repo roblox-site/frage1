@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const encodedName = btoa(String.fromCharCode(...new TextEncoder().encode(`**Name:** ${name}`)));
 
-    const targetURL = `https://roblox-site.github.de/frage2/${encodedName}`;
+    const targetURL = `https://roblox-site.github.io/frage2/${encodedName}`;
     window.location.href = targetURL;
   });
 });
