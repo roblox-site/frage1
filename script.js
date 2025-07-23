@@ -23,9 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("bounce-in");
-        observer.unobserve(entry.target);
-      }
+  entry.target.classList.remove("animate-on-scroll"); // WICHTIG!
+  entry.target.classList.add("bounce-in");
+  observer.unobserve(entry.target);
+}
+
     });
   };
 
