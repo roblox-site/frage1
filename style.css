@@ -7,10 +7,14 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f2f2f2;
-  color: #202124;
-  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  background-color: #202124;
+  color: #E8EAED;
+  line-height: 1.6;
+}
+
+a {
+  color: #8AB4F8;
 }
 
 .form-page {
@@ -19,17 +23,32 @@ body {
   padding: 0 16px;
 }
 
-.form-title {
-  font-size: 24px;
-  font-weight: 500;
+.form-banner {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.description {
+  font-size: 15px;
+  margin-bottom: 32px;
+  color: #BDC1C6;
   text-align: center;
 }
 
 .question-box {
-  background-color: #ffffff;
+  background-color: #303134;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(60,64,67,0.3), 0 4px 8px rgba(60,64,67,0.15);
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -37,38 +56,40 @@ body {
 .question {
   display: block;
   font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 12px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #FFFFFF;
 }
 
-.short-answer {
+.subtitle {
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #BDC1C6;
+}
+
+.short-answer,
+.long-answer,
+.date-select select {
   width: 100%;
   padding: 10px 12px;
   font-size: 14px;
-  border: 1px solid #dadce0;
+  background-color: #202124;
+  color: #E8EAED;
+  border: 1px solid #5F6368;
   border-radius: 4px;
   transition: border-color .2s;
 }
 
-.short-answer:focus {
+.short-answer:focus,
+.long-answer:focus,
+.date-select select:focus {
   outline: none;
-  border-color: #4285f4;
+  border-color: #34A853;
 }
 
 .long-answer {
-  width: 100%;
   min-height: 100px;
-  padding: 10px 12px;
-  font-size: 14px;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
   resize: vertical;
-  transition: border-color .2s;
-}
-
-.long-answer:focus {
-  outline: none;
-  border-color: #4285f4;
 }
 
 .date-select {
@@ -77,21 +98,11 @@ body {
 }
 
 .date-select select {
-  flex: 1;
-  padding: 10px 12px;
-  font-size: 14px;
-  border: 1px solid #dadce0;
-  border-radius: 4px;
   appearance: none;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%23424242'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%206%205-6z'%20fill%3D'%23BDC1C6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 10px 6px;
-}
-
-.date-select select:focus {
-  outline: none;
-  border-color: #4285f4;
 }
 
 .checkbox-group {
@@ -101,14 +112,15 @@ body {
 }
 
 .checkbox-group input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   margin: 0;
 }
 
 .checkbox-group label {
   margin-left: 8px;
   font-size: 14px;
+  color: #E8EAED;
 }
 
 .hidden {
@@ -120,9 +132,9 @@ body {
   width: 100%;
   padding: 12px;
   font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  background-color: #1a73e8;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #34A853;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -130,5 +142,5 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: #1669c1;
+  background-color: #2C8C46;
 }
