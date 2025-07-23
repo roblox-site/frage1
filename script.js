@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 👇 Cookie-Scroll-Sperre aktivieren
+  document.getElementById('cookie-banner').style.display = 'block';
   document.body.classList.add('no-scroll');
 
   const blockScroll = (e) => {
