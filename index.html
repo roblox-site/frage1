@@ -4,107 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Meine Umfrage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header class="form-header animate-on-scroll">
-    <img class="banner-img animate-on-scroll" src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBxZn47caqITw9DrbP71KnsoLQfsGgBMC018gE-tPCGMJOr68PsBx-4Yh5UKr1UApn_6yOq_23cDFgpFXbQsseSYDccXVkKxw3JcRRnRCi3HNNHMG-2lMN88UZtfCH2l9dveAIm6nzYgE47drgcCgxX0Q=w1200?key=3QmP40_VvFwUowGdugqx5A" alt="Banner">
+    <img class="banner-img" src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBxZn47caqITw9DrbP71KnsoLQfsGgBMC018gE-tPCGMJOr68PsBx-4Yh5UKr1UApn_6yOq_23cDFgpFXbQsseSYDccXVkKxw3JcRRnRCi3HNNHMG-2lMN88UZtfCH2l9dveAIm6nzYgE47drgcCgxX0Q=w1200?key=3QmP40_VvFwUowGdugqx5A" alt="Banner">
   </header>
-  <main class="form-page">
-    <h1 class="form-title animate-on-scroll">Meine Umfrage</h1>
-    <p class="form-description animate-on-scroll">Willkommen bei unserer Gruppe! Wir sind eine Gemeinschaft von Entwickler:innen, die sich gegenseitig bei Projekten, beim Lernen und beim beruflichen Networking unterstützen. Um sicherzustellen, dass du gut zu uns passt, bitten wir dich, dieses kurze Formular auszufüllen.</p>
 
-    <!-- Frage 1 -->
-    <div class="question-box animate-on-scroll">
-      <label for="name" class="question">1. Wie heißt du?</label>
-      <p class="subtitle">Wir möchten dich persönlich ansprechen können.</p>
-      <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name" />
-    </div>
-    <!-- Frage 2 -->
-    <div class="question-box animate-on-scroll">
-      <span class="question">2. Wann wurdest du geboren?</span>
-      <p class="subtitle">Das hilft uns, deine Erfahrung besser einzuschätzen.</p>
+  <main class="form-page">
+    <h1 class="form-title">Meine Umfrage</h1>
+    <p class="form-description">Willkommen bei unserer Gruppe! Bitte fülle dieses Formular aus, damit wir dich besser kennenlernen können.</p>
+
+    <!-- Fragen 1–12 -->
+    <div class="question-box"><label>1. Wie heißt du?</label><input type="text" placeholder="Dein Name" /></div>
+
+    <div class="question-box">
+      <label>2. Wann wurdest du geboren?</label>
       <div class="date-select">
-        <select name="day" id="day"><option value="" disabled selected>Tag</option><script>for(let d=1; d<=31; d++){ document.write(`<option value="${d}">${d}</option>`);} </script></select>
-        <select name="month" id="month"><option value="" disabled selected>Monat</option><option value="1">Januar</option><option value="2">Februar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></select>
-        <select name="year" id="year"><option value="" disabled selected>Jahr</option><script>const currentYear=new Date().getFullYear(); for(let y=currentYear; y>=1900; y--){ document.write(`<option value="${y}">${y}</option>`);} </script></select>
+        <select><option disabled selected>Tag</option><script>for(let d=1; d<=31; d++)document.write(`<option>${d}</option>`);</script></select>
+        <select><option disabled selected>Monat</option><option>Januar</option><option>Februar</option><option>März</option><option>April</option><option>Mai</option><option>Juni</option><option>Juli</option><option>August</option><option>September</option><option>Oktober</option><option>November</option><option>Dezember</option></select>
+        <select><option disabled selected>Jahr</option><script>for(let y=new Date().getFullYear(); y>=1900; y--)document.write(`<option>${y}</option>`);</script></select>
       </div>
     </div>
-    <!-- Frage 3 -->
-    <div class="question-box animate-on-scroll">
-      <label for="motivation" class="question">3. Warum möchtest du dich dieser Gruppe anschließen?</label>
-      <textarea id="motivation" name="motivation" class="long-answer" placeholder="Deine Antwort"></textarea>
-    </div>
-    <!-- Frage 4 -->
-    <div class="question-box animate-on-scroll">
-      <label for="einzigartig" class="question">4. Was macht dich besonders einzigartig im Bereich Programmierung?</label>
-      <textarea id="einzigartig" name="einzigartig" class="long-answer" placeholder="Deine Antwort"></textarea>
-    </div>
-    <!-- Frage 5 -->
-    <div class="question-box animate-on-scroll">
-      <label for="erwartungen" class="question">5. Was erwartest du von den Mitgliedern?</label>
-      <textarea id="erwartungen" name="erwartungen" class="long-answer" placeholder="Deine Antwort"></textarea>
-    </div>
-    <!-- Frage 6 -->
-    <div class="question-box animate-on-scroll">
-      <label for="aufbau" class="question">6. Was denkst du, wie ist diese Gruppe aufgebaut?</label>
-      <textarea id="aufbau" name="aufbau" class="long-answer" placeholder="Deine Antwort"></textarea>
-    </div>
-    <!-- Frage 7 -->
-    <div class="question-box animate-on-scroll">
-      <label for="erfahrungen" class="question">7. Welche Erfahrungen hast du bereits im Bereich Programmierung gemacht?</label>
-      <textarea id="erfahrungen" name="erfahrungen" class="long-answer" placeholder="Deine Antwort"></textarea>
-    </div>
-    <!-- Frage 8 -->
-    <div class="question-box animate-on-scroll">
-      <label for="bundesland" class="question">8. Aus welchem Bundesland kommst du?</label>
-      <p class="subtitle">Manchmal machen wir regionale Treffen.</p>
-      <input type="text" id="bundesland" name="bundesland" class="short-answer" placeholder="Dein Bundesland" />
-    </div>
-    <!-- Frage 9 -->
-    <div class="question-box animate-on-scroll" id="discord-box">
-      <label for="discord" class="question">9. Wie lautet dein Discord Benutzername?</label>
-      <div id="discord-input-wrapper">
-        <input type="text" id="discord" name="discord" class="short-answer" placeholder="Benutzername#1234" />
-      </div>
+
+    <div class="question-box"><label>3. Warum möchtest du dich dieser Gruppe anschließen?</label><textarea></textarea></div>
+    <div class="question-box"><label>4. Was macht dich besonders einzigartig im Bereich Programmierung?</label><textarea></textarea></div>
+    <div class="question-box"><label>5. Was erwartest du von den Mitgliedern?</label><textarea></textarea></div>
+    <div class="question-box"><label>6. Was denkst du, wie ist diese Gruppe aufgebaut?</label><textarea></textarea></div>
+    <div class="question-box"><label>7. Welche Erfahrungen hast du bereits im Bereich Programmierung gemacht?</label><textarea></textarea></div>
+    <div class="question-box"><label>8. Aus welchem Bundesland kommst du?</label><input type="text" placeholder="z. B. NRW" /></div>
+
+    <div class="question-box">
+      <label>9. Wie lautet dein Discord Benutzername?</label>
+      <input type="text" placeholder="Benutzername#1234" />
       <div class="checkbox-group">
-        <input type="checkbox" id="no-discord" name="no-discord" />
+        <input type="checkbox" id="no-discord" />
         <label for="no-discord">Ich habe kein Discord</label>
       </div>
     </div>
-    <!-- Frage 10 -->
-    <div class="question-box animate-on-scroll">
-      <label for="sonstiges" class="question">10. Hier kannst du sonstige Informationen angeben (Optional)</label>
-      <p class="subtitle">Alles, was du uns noch mitteilen möchtest.</p>
-      <textarea id="sonstiges" name="sonstiges" class="long-answer" placeholder="Deine zusätzlichen Infos"></textarea>
-    </div>
-    <!-- Frage 11 -->
-    <div class="question-box animate-on-scroll">
-      <div class="checkbox-group">
-        <input type="checkbox" id="confirm-join" name="confirm-join" />
-        <label for="confirm-join">Ich bin mir zu 100% sicher, dass ich mich anschließen möchte</label>
-      </div>
-    </div>
-    <!-- Frage 12 -->
-    <div class="question-box animate-on-scroll">
-      <label for="unterschrift" class="question">12. Bitte unterschreibe: (Vor- und Nachname)</label>
-      <p class="subtitle">Aus rechtlichen Gründen benötigen wir deinen vollständigen Namen.</p>
-      <input type="text" id="unterschrift" name="unterschrift" class="short-answer" placeholder="Vor- und Nachname" />
+
+    <div class="question-box"><label>10. Sonstige Informationen (optional)</label><textarea></textarea></div>
+
+    <div class="question-box">
+      <input type="checkbox" id="confirm-join" />
+      <label for="confirm-join">Ich bin mir zu 100% sicher, dass ich mich anschließen möchte</label>
     </div>
 
-    <button type="submit" class="submit-btn animate-on-scroll">Absenden</button>
+    <div class="question-box"><label>12. Bitte unterschreibe mit deinem Vor- und Nachnamen</label><input type="text" placeholder="Max Mustermann" /></div>
+
+    <button class="submit-btn">Absenden</button>
   </main>
 
-  <!-- OVERLAY -->
-  <div id="overlay" style="display: none;"></div>
-
-  <!-- COOKIE-BANNER -->
-  <div id="cookie-banner" class="cookie-banner" style="display: none;">
-    <h2>🍪 Cookies:</h2>
-    <p>Diese Website verwendet Cookies, um Informationen über dein Nutzungsverhalten zu sammeln. Mehr dazu in der 
-      <a href="https://site.github.io/Datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.
-    </p>
+  <!-- Overlay und Cookie-Banner -->
+  <div id="overlay" class="overlay"></div>
+  <div id="cookie-banner" class="cookie-banner">
+    <h2>🍪 Cookies</h2>
+    <p>Diese Website verwendet Cookies. Mehr Infos in der <a href="https://site.github.io/Datenschutz/" target="_blank">Datenschutzerklärung</a>.</p>
     <button id="accept-cookies" class="submit-btn">Alle akzeptieren</button>
   </div>
 
