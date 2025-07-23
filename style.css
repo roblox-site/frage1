@@ -1,157 +1,19 @@
+/* ===================== */
+/* GENERAL RESET */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
-
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
+  font-family: sans-serif;
   line-height: 1.6;
-  padding: 0;
-}
-
-.form-header {
-  text-align: center;
-  padding: 0;
-  margin-bottom: 24px;
-}
-
-.banner-img {
-  max-width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-}
-
-.form-page {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 16px 64px;
-}
-
-.form-title {
-  font-size: 28px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.form-description {
-  text-align: center;
-  font-size: 16px;
-  margin-bottom: 40px;
-  color: #b0b0b0;
-}
-
-.subtitle {
-  font-size: 14px;
-  margin-bottom: 12px;
-  color: #9e9e9e;
-}
-
-.question-box {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  background-color: #121212;
+  color: #fff;
   padding: 20px;
-  margin-bottom: 24px;
 }
 
-.question {
-  display: block;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-
-.short-answer, .long-answer, select {
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 14px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  background-color: #2a2a2a;
-  color: #fff;
-  margin-bottom: 8px;
-}
-
-.short-answer:focus, .long-answer:focus, select:focus {
-  outline: none;
-  border-color: #4caf50;
-}
-
-.long-answer {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.date-select {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.date-select select {
-  flex: 1;
-}
-
-.checkbox-group {
-  display: flex;
-  align-items: center;
-  margin-top: 12px;
-}
-
-.checkbox-group input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  margin: 0;
-}
-
-.checkbox-group label {
-  margin-left: 8px;
-  font-size: 14px;
-}
-
-.submit-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #fff;
-  background-color: #4caf50;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color .2s;
-}
-
-.submit-btn:hover {
-  background-color: #43a047;
-}
-
-/* Animation styles */
-@keyframes bounceIn {
-  0% { transform: scale(0.3); opacity: 0; }
-  50% { transform: scale(1.05); opacity: 1; }
-  70% { transform: scale(0.9); }
-  100% { transform: scale(1); }
-}
-
-.animate-on-scroll {
-  opacity: 0;
-  transform: scale(0.3);
-}
-
-.bounce-in {
-  animation: bounceIn 0.6s ease-out forwards;
-  will-change: transform, opacity;
-}
-
+/* ===================== */
 /* COOKIE-BANNER & OVERLAY */
 #overlay {
   position: fixed;
@@ -162,26 +24,30 @@ body {
 
 .cookie-banner {
   position: fixed;
-  bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 100%; max-width: 700px;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 700px;
   background-color: #1e1e1e;
   color: #e0e0e0;
-  padding: 20px 16px;
+  padding: 24px 16px;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   z-index: 1000;
   backface-visibility: hidden;
   transform-style: preserve-3d;
+  text-align: center;
 }
 
 .cookie-banner h2 {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 8px;
 }
 
 .cookie-banner p {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 12px;
   color: #b0b0b0;
 }
@@ -193,8 +59,13 @@ body {
 
 .cookie-banner .submit-btn {
   width: auto;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #4caf50;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Flip-Out Animation */
