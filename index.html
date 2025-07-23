@@ -13,57 +13,47 @@
   </header>
 
   <main class="form-page">
-    <h1 class="form-title animate-on-scroll">Meine Umfrage</h1>
-    <p class="form-description animate-on-scroll">Willkommen bei unserer Gruppe! Wir sind eine Gemeinschaft von Entwickler:innen, die sich gegenseitig bei Projekten, beim Lernen und beim beruflichen Networking unterstützen. Um sicherzustellen, dass du gut zu uns passt, bitten wir dich, dieses kurze Formular auszufüllen.</p>
+    <form>
+      <h1 class="form-title animate-on-scroll">Meine Umfrage</h1>
+      <p class="form-description animate-on-scroll">Willkommen bei unserer Gruppe! [...]</p>
 
-    <!-- Frage 1 -->
-    <div class="question-box animate-on-scroll">
-      <label for="name" class="question">1. Wie heißt du?</label>
-      <p class="subtitle">Wir möchten dich persönlich ansprechen können.</p>
-      <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name" />
-    </div>
-
-    <!-- Frage 2 -->
-    <div class="question-box animate-on-scroll">
-      <span class="question">2. Wann wurdest du geboren?</span>
-      <p class="subtitle">Das hilft uns, deine Erfahrung besser einzuschätzen.</p>
-      <div class="date-select">
-        <select name="day" id="day">
-          <option value="" disabled selected>Tag</option>
-          <script>
-            for(let d=1; d<=31; d++){
-              document.write(`<option value="${d}">${d}</option>`);
-            }
-          </script>
-        </select>
-        <select name="month" id="month">
-          <option value="" disabled selected>Monat</option>
-          <option value="1">Januar</option>
-          <option value="2">Februar</option>
-          <option value="3">März</option>
-          <option value="4">April</option>
-          <option value="5">Mai</option>
-          <option value="6">Juni</option>
-          <option value="7">Juli</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">Oktober</option>
-          <option value="11">November</option>
-          <option value="12">Dezember</option>
-        </select>
-        <select name="year" id="year">
-          <option value="" disabled selected>Jahr</option>
-          <script>
-            const currentYear = new Date().getFullYear();
-            for(let y=currentYear; y>=1900; y--){
-              document.write(`<option value="${y}">${y}</option>`);
-            }
-          </script>
-        </select>
+      <!-- Frage 1 -->
+      <div class="question-box animate-on-scroll">
+        <label for="name" class="question">1. Wie heißt du?</label>
+        <p class="subtitle">Wir möchten dich persönlich ansprechen können.</p>
+        <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name" />
       </div>
-    </div>
 
-    <!-- Frage 3 -->
+      <!-- Frage 2 -->
+      <div class="question-box animate-on-scroll">
+        <span class="question">2. Wann wurdest du geboren?</span>
+        <p class="subtitle">Das hilft uns, deine Erfahrung besser einzuschätzen.</p>
+        <div class="date-select">
+          <select name="day" id="day">
+            <option value="" disabled selected>Tag</option>
+          </select>
+          <select name="month" id="month">
+            <option value="" disabled selected>Monat</option>
+            <option value="1">Januar</option>
+            <option value="2">Februar</option>
+            <option value="3">März</option>
+            <option value="4">April</option>
+            <option value="5">Mai</option>
+            <option value="6">Juni</option>
+            <option value="7">Juli</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">Oktober</option>
+            <option value="11">November</option>
+            <option value="12">Dezember</option>
+          </select>
+          <select name="year" id="year">
+            <option value="" disabled selected>Jahr</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Frage 3 -->
     <div class="question-box animate-on-scroll">
       <label for="motivation" class="question">3. Warum möchtest du dich dieser Gruppe anschließen?</label>
       <textarea id="motivation" name="motivation" class="long-answer" placeholder="Deine Antwort"></textarea>
@@ -134,19 +124,61 @@
       <input type="text" id="unterschrift" name="unterschrift" class="short-answer" placeholder="Vor- und Nachname" />
     </div>
 
-    <button type="submit" class="submit-btn animate-on-scroll">Absenden</button>
+      <div class="question-box animate-on-scroll" id="discord-box">
+        <label for="discord" class="question">9. Wie lautet dein Discord Benutzername?</label>
+        <div id="discord-input-wrapper">
+          <input type="text" id="discord" name="discord" class="short-answer" placeholder="Benutzername#1234" />
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="no-discord" name="no-discord" />
+          <label for="no-discord">Ich habe kein Discord</label>
+        </div>
+      </div>
+
+      <!-- Unterschrift -->
+      <div class="question-box animate-on-scroll">
+        <label for="unterschrift" class="question">12. Bitte unterschreibe: (Vor- und Nachname)</label>
+        <p class="subtitle">Aus rechtlichen Gründen benötigen wir deinen vollständigen Namen.</p>
+        <input type="text" id="unterschrift" name="unterschrift" class="short-answer" placeholder="Vor- und Nachname" />
+      </div>
+
+      <button type="submit" class="submit-btn animate-on-scroll">Absenden</button>
+    </form>
   </main>
 
-  <script src="script.js"></script>
-<div id="cookie-banner" class="cookie-banner">
-  <div class="cookie-content">
-    <h2>🍪 Cookies:</h2>
-    <p>
-      Diese Website verwendet Cookies, um Informationen über dein Nutzungsverhalten zu sammeln. Mehr dazu in der
-      <a href="https://site.github.io/Datenschutz/" target="_blank">Datenschutzerklärung</a>.
-    </p>
-    <button id="accept-cookies" class="accept-btn">Alle akzeptieren</button>
+  <!-- Cookie-Banner -->
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <h2>🍪 Cookies:</h2>
+      <p>
+        Diese Website verwendet Cookies, um Informationen über dein Nutzungsverhalten zu sammeln. Mehr dazu in der
+        <a href="https://site.github.io/Datenschutz/" target="_blank">Datenschutzerklärung</a>.
+      </p>
+      <button id="accept-cookies" class="accept-btn">Alle akzeptieren</button>
+    </div>
   </div>
-</div>
+
+  <script>
+    // Dynamisch Optionen für Tag und Jahr generieren
+    document.addEventListener("DOMContentLoaded", () => {
+      const daySelect = document.getElementById("day");
+      for (let d = 1; d <= 31; d++) {
+        const option = document.createElement("option");
+        option.value = d;
+        option.textContent = d;
+        daySelect.appendChild(option);
+      }
+
+      const yearSelect = document.getElementById("year");
+      const currentYear = new Date().getFullYear();
+      for (let y = currentYear; y >= 1900; y--) {
+        const option = document.createElement("option");
+        option.value = y;
+        option.textContent = y;
+        yearSelect.appendChild(option);
+      }
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
