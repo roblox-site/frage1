@@ -11,7 +11,6 @@
   <header class="form-header animate-on-scroll">
     <img class="banner-img animate-on-scroll" src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBxZn47caqITw9DrbP71KnsoLQfsGgBMC018gE-tPCGMJOr68PsBx-4Yh5UKr1UApn_6yOq_23cDFgpFXbQsseSYDccXVkKxw3JcRRnRCi3HNNHMG-2lMN88UZtfCH2l9dveAIm6nzYgE47drgcCgxX0Q=w1200?key=3QmP40_VvFwUowGdugqx5A" alt="Banner">
   </header>
-
   <main class="form-page">
     <h1 class="form-title animate-on-scroll">Meine Umfrage</h1>
     <p class="form-description animate-on-scroll">Willkommen bei unserer Gruppe! Wir sind eine Gemeinschaft von Entwickler:innen, die sich gegenseitig bei Projekten, beim Lernen und beim beruflichen Networking unterstützen. Um sicherzustellen, dass du gut zu uns passt, bitten wir dich, dieses kurze Formular auszufüllen.</p>
@@ -22,84 +21,47 @@
       <p class="subtitle">Wir möchten dich persönlich ansprechen können.</p>
       <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name" />
     </div>
-
     <!-- Frage 2 -->
     <div class="question-box animate-on-scroll">
       <span class="question">2. Wann wurdest du geboren?</span>
       <p class="subtitle">Das hilft uns, deine Erfahrung besser einzuschätzen.</p>
       <div class="date-select">
-        <select name="day" id="day">
-          <option value="" disabled selected>Tag</option>
-          <script>
-            for(let d=1; d<=31; d++){
-              document.write(`<option value="${d}">${d}</option>`);
-            }
-          </script>
-        </select>
-        <select name="month" id="month">
-          <option value="" disabled selected>Monat</option>
-          <option value="1">Januar</option>
-          <option value="2">Februar</option>
-          <option value="3">März</option>
-          <option value="4">April</option>
-          <option value="5">Mai</option>
-          <option value="6">Juni</option>
-          <option value="7">Juli</option>
-          <option value="8">August</option>
-          <option value="9">September</option>
-          <option value="10">Oktober</option>
-          <option value="11">November</option>
-          <option value="12">Dezember</option>
-        </select>
-        <select name="year" id="year">
-          <option value="" disabled selected>Jahr</option>
-          <script>
-            const currentYear = new Date().getFullYear();
-            for(let y=currentYear; y>=1900; y--){
-              document.write(`<option value="${y}">${y}</option>`);
-            }
-          </script>
-        </select>
+        <select name="day" id="day"><option value="" disabled selected>Tag</option><script>for(let d=1; d<=31; d++){ document.write(`<option value="${d}">${d}</option>`);} </script></select>
+        <select name="month" id="month"><option value="" disabled selected>Monat</option><option value="1">Januar</option><option value="2">Februar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Juli</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></select>
+        <select name="year" id="year"><option value="" disabled selected>Jahr</option><script>const currentYear=new Date().getFullYear(); for(let y=currentYear; y>=1900; y--){ document.write(`<option value="${y}">${y}</option>`);} </script></select>
       </div>
     </div>
-
     <!-- Frage 3 -->
     <div class="question-box animate-on-scroll">
       <label for="motivation" class="question">3. Warum möchtest du dich dieser Gruppe anschließen?</label>
       <textarea id="motivation" name="motivation" class="long-answer" placeholder="Deine Antwort"></textarea>
     </div>
-
     <!-- Frage 4 -->
     <div class="question-box animate-on-scroll">
       <label for="einzigartig" class="question">4. Was macht dich besonders einzigartig im Bereich Programmierung?</label>
       <textarea id="einzigartig" name="einzigartig" class="long-answer" placeholder="Deine Antwort"></textarea>
     </div>
-
     <!-- Frage 5 -->
     <div class="question-box animate-on-scroll">
       <label for="erwartungen" class="question">5. Was erwartest du von den Mitgliedern?</label>
       <textarea id="erwartungen" name="erwartungen" class="long-answer" placeholder="Deine Antwort"></textarea>
     </div>
-
     <!-- Frage 6 -->
     <div class="question-box animate-on-scroll">
       <label for="aufbau" class="question">6. Was denkst du, wie ist diese Gruppe aufgebaut?</label>
       <textarea id="aufbau" name="aufbau" class="long-answer" placeholder="Deine Antwort"></textarea>
     </div>
-
     <!-- Frage 7 -->
     <div class="question-box animate-on-scroll">
       <label for="erfahrungen" class="question">7. Welche Erfahrungen hast du bereits im Bereich Programmierung gemacht?</label>
       <textarea id="erfahrungen" name="erfahrungen" class="long-answer" placeholder="Deine Antwort"></textarea>
     </div>
-
     <!-- Frage 8 -->
     <div class="question-box animate-on-scroll">
       <label for="bundesland" class="question">8. Aus welchem Bundesland kommst du?</label>
       <p class="subtitle">Manchmal machen wir regionale Treffen.</p>
       <input type="text" id="bundesland" name="bundesland" class="short-answer" placeholder="Dein Bundesland" />
     </div>
-
     <!-- Frage 9 -->
     <div class="question-box animate-on-scroll" id="discord-box">
       <label for="discord" class="question">9. Wie lautet dein Discord Benutzername?</label>
@@ -111,14 +73,12 @@
         <label for="no-discord">Ich habe kein Discord</label>
       </div>
     </div>
-
     <!-- Frage 10 -->
     <div class="question-box animate-on-scroll">
       <label for="sonstiges" class="question">10. Hier kannst du sonstige Informationen angeben (Optional)</label>
       <p class="subtitle">Alles, was du uns noch mitteilen möchtest.</p>
       <textarea id="sonstiges" name="sonstiges" class="long-answer" placeholder="Deine zusätzlichen Infos"></textarea>
     </div>
-
     <!-- Frage 11 -->
     <div class="question-box animate-on-scroll">
       <div class="checkbox-group">
@@ -126,7 +86,6 @@
         <label for="confirm-join">Ich bin mir zu 100% sicher, dass ich mich anschließen möchte</label>
       </div>
     </div>
-
     <!-- Frage 12 -->
     <div class="question-box animate-on-scroll">
       <label for="unterschrift" class="question">12. Bitte unterschreibe: (Vor- und Nachname)</label>
@@ -136,16 +95,19 @@
 
     <button type="submit" class="submit-btn animate-on-scroll">Absenden</button>
   </main>
-  <!-- COOKIE-BANNER START -->
-  <div id="overlay"></div>
-  <div id="cookie-banner" class="cookie-banner">
+
+  <!-- OVERLAY -->
+  <div id="overlay" style="display: none;"></div>
+
+  <!-- COOKIE-BANNER -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;">
     <h2>🍪 Cookies:</h2>
     <p>Diese Website verwendet Cookies, um Informationen über dein Nutzungsverhalten zu sammeln. Mehr dazu in der 
       <a href="https://site.github.io/Datenschutz/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.
     </p>
     <button id="accept-cookies" class="submit-btn">Alle akzeptieren</button>
   </div>
-  <!-- COOKIE-BANNER END -->
+
   <script src="script.js"></script>
 </body>
 </html>
