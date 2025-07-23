@@ -34,4 +34,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(observerCallback, observerOptions);
 
   animatedItems.forEach(item => observer.observe(item));
+  // Cookie Banner
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.body.classList.add('no-scroll');
+    cookieBanner.style.display = 'block';
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    cookieBanner.classList.add('flip-out');
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.body.classList.remove('no-scroll');
+
+    setTimeout(() => {
+      cookieBanner.remove();
+    }, 600);
+  });
 });
