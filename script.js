@@ -3,13 +3,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const noDiscord = document.getElementById('no-discord');
   const discordInputWrapper = document.getElementById('discord-input-wrapper');
 
-  noDiscord.addEventListener('change', () => {
-    if (noDiscord.checked) {
-      discordInputWrapper.style.display = 'none';
-    } else {
-      discordInputWrapper.style.display = 'block';
-    }
-  });
+  if (noDiscord) {
+    noDiscord.addEventListener('change', () => {
+      if (noDiscord.checked) {
+        discordInputWrapper.style.display = 'none';
+      } else {
+        discordInputWrapper.style.display = 'block';
+      }
+    });
+  }
 
   // Scroll-Animation
   const animatedItems = document.querySelectorAll(".animate-on-scroll");
@@ -33,18 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(observerCallback, observerOptions);
   animatedItems.forEach(item => observer.observe(item));
 
-  // Cookie Banner
+  // Cookie Banner – immer anzeigen
   const cookieBanner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('accept-cookies');
 
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.body.classList.add('no-scroll');
-    cookieBanner.style.display = 'block';
-  }
+  document.body.classList.add('no-scroll');
+  cookieBanner.style.display = 'block';
 
   acceptBtn.addEventListener('click', () => {
     cookieBanner.classList.add('flip-out');
-    localStorage.setItem('cookiesAccepted', 'true');
     document.body.classList.remove('no-scroll');
 
     setTimeout(() => {
