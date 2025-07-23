@@ -149,4 +149,6 @@ body {
 
 .bounce-in {
   animation: bounceIn 0.6s ease-out forwards;
+  will-change: transform, opacity;
 }
+
