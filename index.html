@@ -4,28 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mein Formular</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Meine Umfrage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="form-page">
+    <!-- Banner -->
+    <img
+      src="https://lh7-rt.googleusercontent.com/formsz/AN7BsVBxZn47caqITw9DrbP71KnsoLQfsGgBMC018gE-tPCGMJOr68PsBx-4Yh5UKr1UApn_6yOq_23cDFgpFXbQsseSYDccXVkKxw3JcRRnRCi3HNNHMG-2lMN88UZtfCH2l9dveAIm6nzYgE47drgcCgxX0Q=w1200?key=3QmP40_VvFwUowGdugqx5A"
+      alt="Gruppen-Banner"
+      class="form-banner"
+    >
+
     <h1 class="form-title">Meine Umfrage</h1>
+
+    <p class="description">
+      Wir sind eine engagierte Programmier-Community, die sich gegenseitig fördert, Projekte gemeinsam realisiert und regelmäßig Online-Workshops anbietet. Fülle dieses Formular aus, damit wir dich besser kennenlernen können!
+    </p>
 
     <!-- Frage 1 -->
     <div class="question-box">
       <label for="name" class="question">1. Wie heißt du?</label>
+      <p class="subtitle">Damit wir dich persönlich ansprechen können.</p>
       <input type="text" id="name" name="name" class="short-answer" placeholder="Dein Name">
     </div>
 
     <!-- Frage 2 -->
     <div class="question-box">
       <span class="question">2. Wann wurdest du geboren?</span>
+      <p class="subtitle">Wir möchten das Durchschnittsalter der Gruppe abschätzen.</p>
       <div class="date-select">
         <select name="day" id="day">
           <option value="" disabled selected>Tag</option>
           <script>
-            for(let d=1; d<=31; d++){
+            for (let d = 1; d <= 31; d++) {
               document.write(`<option value="${d}">${d}</option>`);
             }
           </script>
@@ -49,7 +62,7 @@
           <option value="" disabled selected>Jahr</option>
           <script>
             const currentYear = new Date().getFullYear();
-            for(let y=currentYear; y>=1900; y--){
+            for (let y = currentYear; y >= 1900; y--) {
               document.write(`<option value="${y}">${y}</option>`);
             }
           </script>
@@ -90,13 +103,16 @@
     <!-- Frage 8 -->
     <div class="question-box">
       <label for="bundesland" class="question">8. Aus welchem Bundesland kommst du?</label>
+      <p class="subtitle">Damit wir lokale Treffen besser planen können.</p>
       <input type="text" id="bundesland" name="bundesland" class="short-answer" placeholder="Dein Bundesland">
     </div>
 
     <!-- Frage 9 -->
     <div class="question-box" id="discord-box">
-      <label for="discord" class="question">9. Wie lautet dein Discord Benutzername?</label>
-      <input type="text" id="discord" name="discord" class="short-answer" placeholder="Benutzername#1234">
+      <label class="question">9. Wie lautet dein Discord Benutzername?</label>
+      <div class="discord-input-wrapper">
+        <input type="text" id="discord" name="discord" class="short-answer" placeholder="Benutzername#1234">
+      </div>
       <div class="checkbox-group">
         <input type="checkbox" id="no-discord" name="no-discord">
         <label for="no-discord">Ich habe kein Discord</label>
@@ -106,6 +122,7 @@
     <!-- Frage 10 -->
     <div class="question-box">
       <label for="sonstiges" class="question">10. Hier kannst du sonstige Informationen angeben (Optional)</label>
+      <p class="subtitle">Z.B. besondere Skills, Zeitressourcen oder Wünsche.</p>
       <textarea id="sonstiges" name="sonstiges" class="long-answer" placeholder="Deine zusätzlichen Infos"></textarea>
     </div>
 
@@ -120,23 +137,13 @@
     <!-- Frage 12 -->
     <div class="question-box">
       <label for="unterschrift" class="question">12. Bitte unterschreibe: (Vor- und Nachname)</label>
+      <p class="subtitle">Rechtlich verbindliche Zusage zur Teilnahme.</p>
       <input type="text" id="unterschrift" name="unterschrift" class="short-answer" placeholder="Vor- und Nachname">
     </div>
 
     <button type="submit" class="submit-btn">Absenden</button>
   </main>
 
-  <script>
-    // Frage 9: Wenn "Ich habe kein Discord" gecheckt, Textfeld ausblenden
-    const noDiscord = document.getElementById('no-discord');
-    const discordInput = document.getElementById('discord');
-    noDiscord.addEventListener('change', () => {
-      if (noDiscord.checked) {
-        discordInput.parentElement.classList.add('hidden');
-      } else {
-        discordInput.parentElement.classList.remove('hidden');
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
