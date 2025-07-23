@@ -1,11 +1,20 @@
-// script.js
+// Frage 9: Discord Eingabefeld ein-/ausblenden, je nach Checkbox
+document.addEventListener("DOMContentLoaded", () => {
+  const noDiscordCheckbox = document.getElementById("no-discord");
+  const discordInputField = document.getElementById("discord");
 
-document.addEventListener('DOMContentLoaded', () => {
-  const noDiscord = document.getElementById('no-discord');
-  const discordWrapper = document.querySelector('.discord-input-wrapper');
+  if (noDiscordCheckbox && discordInputField) {
+    noDiscordCheckbox.addEventListener("change", () => {
+      if (noDiscordCheckbox.checked) {
+        discordInputField.classList.add("hidden");
+      } else {
+        discordInputField.classList.remove("hidden");
+      }
+    });
+  }
 
-  noDiscord.addEventListener('change', () => {
-    // Nur das Textfeld verbergen/anzeigen
-    discordWrapper.classList.toggle('hidden', noDiscord.checked);
-  });
+  // Falls bei Neuladen Checkbox noch aktiviert ist (z. B. nach Zurück-Button im Browser)
+  if (noDiscordCheckbox.checked) {
+    discordInputField.classList.add("hidden");
+  }
 });
