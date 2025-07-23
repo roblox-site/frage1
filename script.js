@@ -23,17 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const observerCallback = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-  entry.target.classList.remove("animate-on-scroll"); // WICHTIG!
-  entry.target.classList.add("bounce-in");
-  observer.unobserve(entry.target);
-}
-
+        entry.target.classList.remove("animate-on-scroll");
+        entry.target.classList.add("bounce-in");
+        observer.unobserve(entry.target);
+      }
     });
   };
 
   const observer = new IntersectionObserver(observerCallback, observerOptions);
-
   animatedItems.forEach(item => observer.observe(item));
+
   // Cookie Banner
   const cookieBanner = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('accept-cookies');
