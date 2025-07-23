@@ -1,145 +1,163 @@
-/* Grundlegende Schrift und Farben */
-body {
+/* 1. Schriftimport */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* 2. Grundlegendes Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-  line-height: 1.6;
 }
 
-/* Banner */
+/* 3. Body */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #ECECEC;
+  line-height: 1.6;
+  padding: 16px;
+}
+
+/* 4. Banner */
 .banner-img {
+  display: block;
   width: 100%;
   height: auto;
+  max-height: 180px;
   object-fit: cover;
-  max-height: 250px;
-  display: block;
+  border-radius: 8px;
+  margin: 0 auto 24px;
 }
 
-/* Header */
+/* 5. Header */
 .form-header {
   text-align: center;
-  background-color: #1e1e1e;
-  padding-bottom: 0;
 }
 
-/* Formular-Seite */
+/* 6. Formular-Container */
 .form-page {
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 8px;
 }
 
-/* Titel und Beschreibung */
+/* 7. Titel */
 .form-title {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
   text-align: center;
+  margin-bottom: 12px;
 }
 
+/* 8. Beschreibungstext */
 .form-description {
-  text-align: center;
-  color: #c0c0c0;
   font-size: 1rem;
-  margin-bottom: 2rem;
+  color: #B0B0B0;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto 32px;
 }
 
-/* Fragenboxen */
+/* 9. Frage-Box */
 .question-box {
-  background-color: #1f1f1f;
-  padding: 1.2rem;
+  background-color: #1F1F1F;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 255, 120, 0.08);
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 255, 120, 0.1);
 }
 
+/* 10. Fragenüberschrift */
 .question {
-  font-weight: 500;
-  font-size: 1.05rem;
-  margin-bottom: 0.4rem;
   display: block;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-bottom: 8px;
 }
 
+/* 11. Untertitel/Subtext */
 .subtext {
-  color: #8be499;
+  color: #8BE499;
   font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 16px;
 }
 
-/* Eingabefelder */
+/* 12. Inputs & Textareas */
 .short-answer,
 .long-answer,
 select {
   width: 100%;
   padding: 0.6rem;
-  margin-top: 0.2rem;
+  font-size: 1rem;
+  background-color: #2A2A2A;
+  color: #ECECEC;
   border: none;
   border-radius: 6px;
-  background-color: #2a2a2a;
-  color: #ffffff;
-  font-size: 1rem;
-  box-sizing: border-box;
+  margin-bottom: 16px;
 }
 
 .long-answer {
-  height: 120px;
+  min-height: 120px;
   resize: vertical;
 }
 
-/* Dropdowns */
+/* 13. Datumsauswahl als Flex */
 .date-select {
   display: flex;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .date-select select {
-  flex: 1 1 30%;
+  flex: 1;
 }
 
-/* Checkboxen */
+/* 14. Checkbox-Gruppe */
 .checkbox-group {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 0.8rem;
+  margin-top: 8px;
 }
 
 .checkbox-group input[type="checkbox"] {
-  accent-color: #00cc66;
+  accent-color: #00CC66;
   transform: scale(1.2);
 }
 
-/* Submit Button */
+/* 15. Versteckte Felder */
+.hidden {
+  display: none !important;
+}
+
+/* 16. Submit-Button */
 .submit-btn {
-  display: block;
   width: 100%;
-  background-color: #00cc66;
-  color: #000;
-  font-weight: bold;
   padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #00CC66;
+  color: #000000;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
   transition: background-color 0.3s ease;
+  margin-top: 8px;
 }
 
 .submit-btn:hover {
-  background-color: #00e676;
+  background-color: #00E676;
 }
 
-/* Responsiveness */
-@media (max-width: 600px) {
+/* 17. Mobile-Optimierungen */
+@media (max-width: 480px) {
   .form-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
-
   .form-description {
     font-size: 0.95rem;
+    margin-bottom: 24px;
   }
-
   .question {
     font-size: 1rem;
   }
