@@ -1,20 +1,35 @@
-// Frage 9: Discord Eingabefeld ein-/ausblenden, je nach Checkbox
 document.addEventListener("DOMContentLoaded", () => {
-  const noDiscordCheckbox = document.getElementById("no-discord");
-  const discordInputField = document.getElementById("discord");
+  // Discord checkbox logik
+  const noDiscord = document.getElementById('no-discord');
+  const discordInputWrapper = document.getElementById('discord-input-wrapper');
 
-  if (noDiscordCheckbox && discordInputField) {
-    noDiscordCheckbox.addEventListener("change", () => {
-      if (noDiscordCheckbox.checked) {
-        discordInputField.classList.add("hidden");
-      } else {
-        discordInputField.classList.remove("hidden");
+  noDiscord.addEventListener('change', () => {
+    if (noDiscord.checked) {
+      discordInputWrapper.style.display = 'none';
+    } else {
+      discordInputWrapper.style.display = 'block';
+    }
+  });
+
+  // Scroll-Animation
+  const animatedItems = document.querySelectorAll(".animate-on-scroll");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("bounce-in");
+        observer.unobserve(entry.target);
       }
     });
-  }
+  };
 
-  // Falls bei Neuladen Checkbox noch aktiviert ist (z. B. nach Zurück-Button im Browser)
-  if (noDiscordCheckbox.checked) {
-    discordInputField.classList.add("hidden");
-  }
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  animatedItems.forEach(item => observer.observe(item));
 });
