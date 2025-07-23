@@ -1,28 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const overlay = document.getElementById("overlay");
-  const banner = document.getElementById("cookie-banner");
-  const acceptBtn = document.getElementById("accept-cookies");
+  // Discord checkbox logik
+  const noDiscord = document.getElementById('no-discord');
+  const discordInputWrapper = document.getElementById('discord-input-wrapper');
 
-  const showCookieBanner = () => {
-    overlay.style.display = "block";
-    banner.style.display = "block";
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-  };
-
-  const hideCookieBanner = () => {
-    overlay.style.display = "none";
-    banner.style.display = "none";
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
-  };
-
-  if (!localStorage.getItem("cookieAccepted")) {
-    showCookieBanner();
-  }
-
-  acceptBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieAccepted", "true");
-    hideCookieBanner();
+  noDiscord.addEventListener('change', () => {
+    if (noDiscord.checked) {
+      discordInputWrapper.style.display = 'none';
+    } else {
+      discordInputWrapper.style.display = 'block';
+    }
   });
+
+  // Scroll-Animation
+  const animatedItems = document.querySelectorAll(".animate-on-scroll");
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1
+  };
+
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+  entry.target.classList.remove("animate-on-scroll"); // WICHTIG!
+  entry.target.classList.add("bounce-in");
+  observer.unobserve(entry.target);
+}
+
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  animatedItems.forEach(item => observer.observe(item));
 });
