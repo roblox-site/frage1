@@ -1,36 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const banner = document.getElementById('cookie-banner');
-  const overlay = document.getElementById('overlay');
-  const acceptBtn = document.getElementById('accept-btn');
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("overlay");
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
 
-  function showCookieBanner() {
-    overlay.style.display = 'block';
-    banner.style.display = 'block';
-    // Scroll und Interaktion blockieren
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-  }
+  const showCookieBanner = () => {
+    overlay.style.display = "block";
+    banner.style.display = "block";
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  };
 
-  function hideCookieBanner() {
-    // Flip-Out-Klasse hinzufügen
-    banner.classList.add('flip-out');
-    // Nach Animation Overlay und Banner entfernen
-    setTimeout(() => {
-      overlay.style.display = 'none';
-      banner.style.display = 'none';
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }, 600);
-  }
+  const hideCookieBanner = () => {
+    overlay.style.display = "none";
+    banner.style.display = "none";
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+  };
 
-  // Prüfen, ob bereits akzeptiert wurde
-  const consent = localStorage.getItem('cookieConsent');
-  if (!consent) {
+  if (!localStorage.getItem("cookieAccepted")) {
     showCookieBanner();
   }
 
-  acceptBtn.addEventListener('click', function () {
-    localStorage.setItem('cookieConsent', 'accepted');
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieAccepted", "true");
     hideCookieBanner();
   });
 });
