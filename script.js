@@ -35,3 +35,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animatedItems.forEach(item => observer.observe(item));
 });
+
+  // COOKIE-BANNER LOGIK
+  const overlay = document.getElementById('overlay');
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('accept-cookies');
+
+  function showCookieBanner() {
+    overlay.style.display = 'block';
+    banner.style.display = 'block';
+    // Scroll und Interaktion blockieren
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideCookieBanner() {
+    // Flip-Out-Klasse hinzufügen
+    banner.classList.add('flip-out');
+    // Nach Animation Overlay und Banner entfernen
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      banner.style.display = 'none';
+      document.body.style.overflow = ''; // Scroll wieder erlauben
+    }, 600);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Prüfen, ob bereits akzeptiert
+    if (!localStorage.getItem('cookieAccepted')) {
+      showCookieBanner();
+    }
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieAccepted', 'true');
+      hideCookieBanner();
+    });
+  });
