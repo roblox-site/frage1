@@ -69,63 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.querySelector(".submit-btn");
   const errorMessage = document.getElementById("error-message");
 
-  // Validierungsfunktionen pro Frage
-  const validators = [
-    // Frage 1: Name 3–20 Zeichen
-    () => {
-      const v = document.getElementById("name").value.trim();
-      return v.length >= 3 && v.length <= 20
-        ? null
-        : "Du hast bei Frage 1 keinen gültigen Namen eingegeben";
-    },
-    // Frage 2: Tag, Monat, Jahr ausgefüllt
-    () => {
-      const d = document.getElementById("day").value,
-            m = document.getElementById("month").value,
-            y = document.getElementById("year").value;
-      return (d && m && y)
-        ? null
-        : "Du hast Frage 2 nicht vollständig bearbeitet.";
-    },
-    // Frage 3–7: Textarea ≥ 200 Zeichen
-    id => {
-      const v = document.getElementById(id).value.trim();
-      return v.length >= 200
-        ? null
-        : "Du musst bei Frage " + idMap[id] + " mindestens 200 Zeichen eingeben.";
-    },
-    // Frage 8: Bundesland 3–20 Zeichen
-    () => {
-      const v = document.getElementById("bundesland").value.trim();
-      return v.length >= 3 && v.length <= 20
-        ? null
-        : "Du hast bei Frage 8 keinen gültigen Namen eingegeben";
-    },
-    // Frage 9: Wenn kein Discord angekreuzt, dann Text 3–30 Zeichen
-    () => {
-      const noDisc = document.getElementById("no-discord").checked;
-      const v = document.getElementById("discord").value.trim();
-      if (noDisc) return null;
-      return v.length >= 3 && v.length <= 30
-        ? null
-        : "Du benötigst einen gültigen Discord Benutzernamen bei Frage 9, um mitzumachen";
-    },
-    // Frage 11: Checkbox angekreuzt
-    () => {
-      return document.getElementById("confirm-join").checked
-        ? null
-        : "Du musst dir bei Frage 11 sicher sein, teilzunehmen";
-    },
-    // Frage 12: Unterschrift 3–20 Zeichen
-    () => {
-      const v = document.getElementById("unterschrift").value.trim();
-      return v.length >= 3 && v.length <= 20
-        ? null
-        : "Du hast bei Frage 12 keinen gültigen Namen eingegeben";
-    },
-  ];
-
-  // Hilfs-Map für Textarea-IDs zu Nummer
   const idMap = {
     motivation: 3,
     einzigartig: 4,
@@ -134,65 +77,83 @@ document.addEventListener("DOMContentLoaded", () => {
     erfahrungen: 7
   };
 
-  // Prüft das gesamte Formular, gibt Fehlermeldung oder null
+  // Validierungsfunktion
   function validateForm() {
     // Frage 1
-    let err = validators[0]();
-    if (err) return err;
-    // Frage 2
-    err = validators[1]();
-    if (err) return err;
-    // Frage 3–7
-    for (let i = 2; i < 7; i++) {
-      const id = Object.keys(idMap)[i - 2];
-      err = validators[i](id);
-      if (err) return err;
+    const name = document.getElementById("name").value.trim();
+    if (name.length < 3 || name.length > 20) {
+      return "Du hast bei Frage 1 keinen gültigen Namen eingegeben";
     }
-    // Frage 8
-    err = validators[7]();
-    if (err) return err;
-    // Frage 9
-    err = validators[8]();
-    if (err) return err;
-    // Frage 11
-    err = validators[9]();
-    if (err) return err;
-    // Frage 12
-    err = validators[10]();
-    if (err) return err;
 
+    // Frage 2
+    const day = document.getElementById("day").value;
+    const month = document.getElementById("month").value;
+    const year = document.getElementById("year").value;
+    if (!day || !month || !year) {
+      return "Du hast Frage 2 nicht vollständig bearbeitet.";
+    }
+
+    // Fragen 3–7 (Textarea ≥ 200 Zeichen)
+    for (const [id, num] of Object.entries(idMap)) {
+      const val = document.getElementById(id).value.trim();
+      if (val.length < 200) {
+        return `Du musst bei Frage ${num} mindestens 200 Zeichen eingeben.`;
+      }
+    }
+
+    // Frage 8
+    const bundesland = document.getElementById("bundesland").value.trim();
+    if (bundesland.length < 3 || bundesland.length > 20) {
+      return "Du hast bei Frage 8 keinen gültigen Namen eingegeben";
+    }
+
+    // Frage 9
+    const noDiscord = document.getElementById("no-discord").checked;
+    const discord = document.getElementById("discord").value.trim();
+    if (!noDiscord && (discord.length < 3 || discord.length > 30)) {
+      return "Du benötigst einen gültigen Discord Benutzernamen bei Frage 9, um mitzumachen";
+    }
+
+    // Frage 11
+    const confirmJoin = document.getElementById("confirm-join").checked;
+    if (!confirmJoin) {
+      return "Du musst dir bei Frage 11 sicher sein, teilzunehmen";
+    }
+
+    // Frage 12
+    const unterschrift = document.getElementById("unterschrift").value.trim();
+    if (unterschrift.length < 3 || unterschrift.length > 20) {
+      return "Du hast bei Frage 12 keinen gültigen Namen eingegeben";
+    }
+
+    // ✅ Alles OK
     return null;
   }
 
-  // Event: Submit
-  form.addEventListener("submit", e => {
+  // 🟢 Validierung bei Absenden
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const err = validateForm();
-    if (err) {
-      // Fehler anzeigen und Button deaktivieren
-      errorMessage.textContent = err;
+    const error = validateForm();
+
+    if (error) {
+      errorMessage.textContent = error;
       submitBtn.classList.add("disabled");
       submitBtn.disabled = true;
     } else {
-      // Weiterleiten
       window.location.href = "https://MeineSeite.de/Fertig";
     }
   });
 
-  // Bei jeder Änderung: Fehlermeldung löschen, Button aktivieren
+  // 🔁 Eingaben beobachten: Fehler entfernen, Button aktivieren
   const allInputs = form.querySelectorAll("input, textarea, select");
-  allInputs.forEach(el => {
-    el.addEventListener("input", () => resetError());
-    el.addEventListener("change", () => resetError());
+  allInputs.forEach((input) => {
+    input.addEventListener("input", resetErrors);
+    input.addEventListener("change", resetErrors);
   });
 
-  function resetError() {
-    if (submitBtn.disabled) {
-      submitBtn.disabled = false;
-      submitBtn.classList.remove("disabled");
-    }
+  function resetErrors() {
     errorMessage.textContent = "";
+    submitBtn.disabled = false;
+    submitBtn.classList.remove("disabled");
   }
-
-
 });
