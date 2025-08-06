@@ -107,12 +107,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return "Du hast bei Frage 8 keinen gültigen Namen eingegeben";
     }
 
-    // Frage 9
-    const noDiscord = document.getElementById("no-discord").checked;
-    const discord = document.getElementById("discord").value.trim();
-    if (!noDiscord && (discord.length < 3 || discord.length > 30)) {
-      return "Du benötigst einen gültigen Discord Benutzernamen bei Frage 9, um mitzumachen";
-    }
+    // Frage 9 (Discord)
+const noDiscord = document.getElementById("no-discord").checked;
+const discord = document.getElementById("discord").value.trim();
+if (noDiscord || discord.length < 3 || discord.length > 30) {
+  return "Du benötigst einen gültigen Discord Benutzernamen bei Frage 9, um mitzumachen";
+}
 
     // Frage 11
     const confirmJoin = document.getElementById("confirm-join").checked;
